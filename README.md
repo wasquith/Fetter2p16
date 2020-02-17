@@ -154,8 +154,21 @@ Our analysis can finally begin. We have the data and a purpose. In the code belo
   plot(Prob, Qs, type="l", xlab="Exceedance probability", ylab="Flow, cfs")
 ```
 
-In the previous code, a lower case "L" is the `type="l"` in relation to the `plot()` function to make it a line plot. It is not the number "1". The `qnorm()` function turns probability into standard deviations from the mean, but the axis is distorted in the same way as Fetter's probability paper on p. 65 of the book. If you want to access the _R_ help, use > `?qnorm` if you want to look up a topic use > `??"standard deviation"`
+In the previous code, a lower case "L" is the `type="l"` in relation to the `plot()` function to make it a line plot. It is not the number "1". During the code development cycle, we often want to inspect the contents of variables. We can do that through the _RStudio_ interface with the "Environment" tab, but the author almost exclusively just types a variable name at the prompt. Try typing `Qs` to see all of the streamflows, which shows that 98 years were available.
 
+```
+> Qs
+ [1]  1911  4468  5454  8515  8589  9623  9752 10100 10160 10440 10450 10690 10810
+[14] 10840 10910 10930 11030 11060 11070 11090 11140 11180 11200 11240 11360 11390
+[27] 11540 11550 11560 11580 11640 11690 11790 11920 11930 11990 12060 12090 12110
+[40] 12130 12210 12240 12280 12320 12380 12440 12450 12490 12540 12700 12760 12790
+[53] 12830 12860 12870 12950 13440 13680 14100 14180 14920 15240 15610 15760 15900
+[66] 16000 16100 16260 16400 16550 16680 17050 17120 17200 17750 17930 18040 18150
+[79] 19130 19400 19940 20170 20270 20430 20840 21100 21600 22200 23330 23410 24190
+[92] 24660 24670 25820 25830 26500 27060 28070
+```
+
+To complete the request of problem 2.16 to construct the flow-duration curve on "probability paper," which we can hack together using a transform on the probabilities in to "standard normal variates" from the Normal (bell-shaped) probability distribution using the `qnorm()` function. The code that follows does this along with creation of a PDF file of the graphic on the file system. This file could then be printed out or emailed to a colleague. The author would like your student "R" number inserted as shown and the plot turned in with your name and date on the top of the page.
 
 ```
   pdf("flow_duration_curve.pdf", height=5, width=6.5) # turn PDF in with code
@@ -163,6 +176,18 @@ In the previous code, a lower case "L" is the `type="l"` in relation to the `plo
     mtext("09380000 Colorado River at Lees Ferry, AZ (INSERT YOUR R NUMBER HERE)")
   dev.off() # close up the PDF graphics device
 ```
+
+The `qnorm()` function turns probability into standard deviations from the mean, but the axis is distorted in the same way as Fetter's probability paper on p. 65 of the book. If you want to access the _R_ help, use > `?qnorm` if you want to look up a topic use `??"standard deviation"`.
+
+That is it. We have created a flow-duration curve. It is perhaps useful to conclude the problem with an extra step of plotting a time series of the data. Notice that we can continue "long" functions around the end of the line and that the author aligns `xlab` under `type` only because it looks good, is more readable. Discussion of this figure along with the flow-duration will elucidate much of the hydrologic history of the Colorado River at Lees Ferry.
+
+```
+  plot(Year, AnnualValues, type="b", pch=21, bg="tomato",
+                           xlab="Calendar year", ylab="Annual streamflow, cfs")
+  mtext("09380000 Colorado River at Lees Ferry, AZ")
+```
+
+<img src='www/TimeSeriesPlot.png' align="middle" />
 
 
 ## What does the Author's _RStudio_ Session Look Like?
