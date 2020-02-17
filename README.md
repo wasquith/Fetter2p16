@@ -82,6 +82,37 @@ For the solution to the problem, we will use the **dataRetrieval** package to ac
 
 # FETTER PROBLEM 2.16
 
+## First a "Hello World" Problem
+
+At the command console, type `print("Hello World")`. You will see this `[1] "Hello World"` returned within the console. Congratulations, you have written your first _R_ program. Let us now run a few small operations to give you a feel by moving into a prompt `>` and answer style.
+
+How about the cosine of 45 degrees?
+
+```
+> cos(pi/4)
+[1] 0.7071068
+```
+
+The prompt though gets in the way of copy and paste. So the author prefers to write operations and returned content this way. How about a sequence even numbers divided by 3?
+
+```
+seq(2:10,by=2)/3
+# [1] 0.6666667 1.3333333 2.0000000 2.6666667 3.3333333
+```
+
+But this time, the author has added the `#` sign, which is a harmless comment command that tells _R_ to ignore the rest of the line. This is done so one can copy and paste everything above "by accident" and not have _R_ complain that `[1] 0.6666667 1.3333333 2.0000000 2.6666667 3.3333333` is not actually a command. This is just stylistically a style chosen by the author.
+
+Let us work another. We have the basic mathematical features available as the following example shows with the `c()` operation being uses to concatenate the number 1, 6, 8, and 9 in to a vector. In fact, in _R_ basically everything is a vector. So the system is "vectorized", which is incredibly powerful in practical applications. The code below hints that _R_ is usually very forgiving on placement of spaces.
+
+```
+  (c(1, 6,8,  9) + 5) *    2
+# [1] 12 22 26 28
+```
+
+
+
+## Solving Fetter 2.16
+
 The following "commands" can be typed at the console prompt in _R_ to solve the problem. However, the author usually opens a new script from the `File` menu and would paste the commands shown below in one large chunk and run the code. We will use both styles in class.
 
 ```{r}
