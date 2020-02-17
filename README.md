@@ -82,6 +82,8 @@ For the solution to the problem, we will use the **dataRetrieval** package to ac
 
 # FETTER PROBLEM 2.16
 
+The following "commands" can be typed at the console prompt in _R_ to solve the problem. However, the author usually opens a new script from the `File` menu and would paste the commands shown below in one large chunk and run the code. We will use both styles in class.
+
 ```{r}
   print(getwd()) # shows you were you are on computer, going to make output
   library(dataRetrieval)
@@ -89,7 +91,7 @@ For the solution to the problem, we will use the **dataRetrieval** package to ac
 
 ```
   Flow <- readNWISstat("09380000",parameterCd="00060",statReportType="annual")
-  head(Flow) # Satisfies Fetter's (A) request (sort of)
+  head(Flow) # the part 1 of the problem with probability table (sort of)
   write.table(Flow, file="could_import_this_in_excel.csv", sep=",") # output
 ```
 
@@ -105,6 +107,29 @@ For the solution to the problem, we will use the **dataRetrieval** package to ac
     mtext("09380000 Colorado River at Lees Ferry, AZ (INSERT YOUR R NUMBER HERE)")
   dev.off() # close up the PDF graphics device
 ```
+
+A lower case "L" is the `type="l"` in relation to the `plot()` function to make it a line plot. It is not the number "1". The `qnorm()` function turns probability into standard deviations from the mean, but the axis is distorted in the same way as Fetter's probability paper on p. 65 of the book. If you want to access the _R_ help, use > `?qnorm` if you want to look up a topic use > `??"standard deviation"`
+
+## What does the Authors' _RStudio_ Session Look Like?
+
+
+<img src='www/RStudio_Fetter2p16.png' align="middle" />
+
+
+
+## How Do I Learn More about R?
+
+We have actually worked an exceptionally common problem in the science of surface water hydrology.  The lesson here is supposed to be used an introduction to using _R_ in an advanced problem and not as a tutorial into the language itself. Sometimes the first leap into something new requires the creation of foundational understanding and workflow and then the self learning can commence.
+
+There are various "cheat sheets" into _R_ and _RStudio_. Your author extensively used this [Short-refcard](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
+ some 20 years ago during initial learning of the language. A couple of other reference cards found nearly instantly on the Internet are [here](http://web.mit.edu/hackl/www/lab/turkshop/slides/r-cheatsheet.pdf)
+ and [here](http://www.datasciencefree.com/basicR.pdf).
+
+The author is a user of _RStudio_. The author is not perhaps a "power" user and does not use all the features as summarized in this cheatsheet: [RStudio Cheatsheet](https://rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf).
+
+## A Good Text Editor is Always Useful
+
+For MacOS, the author uses `BBedit` and `TextWrangler`. The author uses `BBedit` on almost all his Macs in order to support the company ([Bare Bones Software](http://www.barebones.com)). Windows users are encouraged to get `NotePad++` from [notepad-plus-plus.org](https://notepad-plus-plus.org).
 
 
 # REFERENCES
