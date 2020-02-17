@@ -67,6 +67,7 @@
 
 # POST INSTALLATION INSTRUCTIONS
 
+
 <img src='www/RStudio_PackageInstallation.png' align="middle" />
 
 
